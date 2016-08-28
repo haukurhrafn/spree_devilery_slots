@@ -1,4 +1,4 @@
-<h5 class="stock-delivery-date-title">Delivery date and time</h5>
+<h5 class="stock-delivery-date-title">Veldu afhendingardag og tíma</h5>
 
 <div id="delivery_date">
   <%= form.hidden_field :delivery_date %>
@@ -8,7 +8,7 @@
 
   <table>
     <thead>
-      <th>Delivery windows:</th>
+      <th>Afhendingar- gluggar:</th>
 
       <% days.each do |day| %>
         <th><%= day.strftime("%a %m/%d") %></th>
@@ -24,7 +24,7 @@
             <% available_slots = SpreeDeliverySlots.available_for(day) %>
 
             <% if available_slots.include?(slot) %>
-              <td class="available-delivery-slot <%= (@order.delivery_date == day and @order.delivery_slot == slot) ? 'selected-delivery-slot' : '' %>" data-slot-id="<%= slot.id %>" data-date="<%= day %>">Select</td>
+              <td class="available-delivery-slot <%= (@order.delivery_date == day and @order.delivery_slot == slot) ? 'selected-delivery-slot' : '' %>" data-slot-id="<%= slot.id %>" data-date="<%= day %>">Laust</td>
             <% else %>
               <td class="unavailable-delivery-slot"></td>
             <% end %>
@@ -33,9 +33,4 @@
       <% end %>
     </tbody>
   </table>
-
-  <div class="field">
-    <%= form.label :delivery_instructions, "Delivery Instructions/Comments" %>
-    <%= form.text_area :delivery_instructions %>
-  </div>
 </div>
