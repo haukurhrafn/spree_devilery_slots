@@ -1,4 +1,4 @@
-<h5 class="stock-delivery-date-title">Veldu afhendingardag og tíma</h5>
+<h4>Veldu afhendingardag og tíma</h4>
 
 <div id="delivery_date">
   <%= form.hidden_field :delivery_date %>
@@ -6,7 +6,7 @@
 
   <% days = (Date.today..(5.days.from_now.to_date)) %>
 
-  <table>
+  <table style="width:100%" class="table-bordered table tablelook2">
     <thead>
       <th>Afhendingar- gluggar:</th>
 
