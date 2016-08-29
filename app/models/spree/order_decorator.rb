@@ -29,6 +29,6 @@ Spree::PermittedAttributes.checkout_attributes << :delivery_date
 Spree::PermittedAttributes.checkout_attributes << :delivery_slot_id
 Spree::PermittedAttributes.checkout_attributes << :delivery_instructions
 
-Spree::Order.state_machine.before_transition :to => :payment, :do => :valid_delivery_instructions?
+#Spree::Order.state_machine.before_transition :to => :payment, :do => :valid_delivery_instructions?
 Spree::Order.state_machine.before_transition :to => :payment, :do => :valid_delivery_date?
 Spree::Order.state_machine.before_transition :to => :payment, :do => :valid_delivery_slot?

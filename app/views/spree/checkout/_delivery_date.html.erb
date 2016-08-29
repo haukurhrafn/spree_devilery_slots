@@ -11,7 +11,7 @@
       <th>Afhendingar- gluggar:</th>
 
       <% days.each do |day| %>
-        <th><%= day.strftime("%a %m/%d") %></th>
+        <th><%= l(day, format: '%a %m/%d') %></th>
       <% end %>
     </thead>
 
