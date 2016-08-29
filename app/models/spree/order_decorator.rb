@@ -13,7 +13,7 @@ Spree::Order.class_eval do
   end
 
   def valid_delivery_date?
-    self.errors[:delivery_date] << 'verður að vera valinn' unless self.delivery_date
+    self.errors[:delivery_date] << 'verða að vera valinn' unless self.delivery_date
 
     self.errors[:delivery_date].empty? ? true : false
   end
