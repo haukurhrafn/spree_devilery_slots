@@ -26,10 +26,12 @@
 #delivery_date {
   .unavailable-delivery-slot {
     background-color: gray;
+	text-align: center;
   }
 
   .available-delivery-slot {
     cursor: pointer;
+	text-align: center;
   }
 
   .available-delivery-slot:hover {
@@ -40,7 +42,7 @@
     background-color: #4ec67f;
 
     &, &:hover {
-      background-color: #00adee;
+      background-color: #4ec67f;
       color: #fff;
     }
   }
