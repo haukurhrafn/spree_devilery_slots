@@ -3,7 +3,12 @@ Spree::Order.class_eval do
 
   require 'date'
   require 'spree/order/checkout'
-
+  
+  self.whitelisted_ransackable_associations = %w[shipments user promotions bill_address ship_address line_items delivery_slot]
+  self.whitelisted_ransackable_attributes =  %w[completed_at created_at email number state payment_state shipment_state total considered_risky delivery_date start_hour]
+  
+  
+        
   def valid_delivery_instructions?
     if self.delivery_instructions.length > 500
       self.errors[:delivery_instructions] << 'cannot be longer than 500 charachters'

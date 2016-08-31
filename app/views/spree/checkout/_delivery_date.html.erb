@@ -4,12 +4,10 @@
   <%= form.hidden_field :delivery_date %>
   <%= form.hidden_field :delivery_slot_id %>
 
-  <% days = (Date.today..(5.days.from_now.to_date)) %>
+  <% days = (Date.today..(4.days.from_now.to_date)) %>
 
   <table style="width:100%" class="table-bordered table tablelook2">
     <thead>
-      <th></th>
-
       <% days.each do |day| %>
         <th class="delivery-day"><%= l(day, format: '%a %m/%d') %></th>
       <% end %>
@@ -18,13 +16,11 @@
     <tbody>
       <% Spree::DeliverySlot.all.each do |slot| %>
         <tr>
-          <td><%= slot.name %></td>
-
           <% days.each do |day| %>
             <% available_slots = SpreeDeliverySlots.available_for(day) %>
 
             <% if available_slots.include?(slot) %>
-              <td class="available-delivery-slot <%= (@order.delivery_date == day and @order.delivery_slot == slot) ? 'selected-delivery-slot' : '' %>" data-slot-id="<%= slot.id %>" data-date="<%= day %>">Laust</td>
+              <td class="available-delivery-slot <%= (@order.delivery_date == day and @order.delivery_slot == slot) ? 'selected-delivery-slot' : '' %>" data-slot-id="<%= slot.id %>" data-date="<%= day %>"><%= slot.name %></td>
             <% else %>
               <td class="unavailable-delivery-slot"></td>
             <% end %>
